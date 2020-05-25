@@ -217,6 +217,26 @@ namespace OpenHardwareMonitor.Hardware {
       }
     }
 
+    public bool WaitIsaBusMutex(int timeout)
+    {
+      return Ring0.WaitIsaBusMutex(timeout);
+    }
+
+    public void ReleaseIsaBusMutex()
+    {
+      Ring0.ReleaseIsaBusMutex();
+    }
+
+    public void WriteIoPort(int port, byte value)
+    {
+      Ring0.WriteIoPort((uint)port, value);
+    }
+
+    public byte ReadIoPort(int port)
+    {
+      return Ring0.ReadIoPort((uint)port);
+    }
+
     public IHardware[] Hardware {
       get {
         List<IHardware> list = new List<IHardware>();
